@@ -33,8 +33,7 @@ CREATE TABLE users (
   last_name varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL,
   picture_path varchar(400) NOT NULL DEFAULT 'default/picture/path.png',
-  PRIMARY KEY (id),
-  UNIQUE KEY picture_path (picture_path)
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
