@@ -14,7 +14,7 @@ CREATE TABLE group_members (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE posts (
-  id int(11) NOT NULL,
+  id int(11) NOT NULL AUTO_INCREMENT,
   group_id int(11) NOT NULL,
   poster int(11) NOT NULL,
   post text NOT NULL,
