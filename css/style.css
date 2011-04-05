@@ -1,0 +1,364 @@
+/* Main CSS Style Sheet */
+
+body
+{
+	background-color:white;
+	background-repeat:repeat-x;
+	background-image:url('../images/backgroundGradient.png');
+	text-align:center;
+	margin:0 0 0 0;
+	font-family:Lucida Grande,Lucida Sans Unicode;
+}
+
+.autoCenterBlock
+{
+    margin: 0px auto;
+    text-align: left;
+    width:1024px;
+}
+
+#topHeader
+{
+    margin: 0px auto;
+    text-align: left;
+    width:100%;
+    background-color: #005da4;
+}
+
+#headerMainBlock
+{
+	height:150px;
+}
+
+#headerLogo
+{
+	padding-top:20px;
+	float:left;"
+}
+
+#headerProfilMiniFrame
+{
+	background-image:url('../images/grayZone.png');
+	width:253px;
+	height:102px;
+	margin-top:20px;
+	color:White;
+}
+
+#headerProfilMiniContent
+{
+	font-size:small;
+	width:233px;
+	height:82px;
+	margin:10px 10px 10px 10px;
+}
+
+
+#main
+{
+    margin: 0px auto;
+    text-align: left;
+    width:1024px;
+}
+
+img
+{  
+	border-style: none;
+}
+
+#headercontent
+{
+    margin: 0px auto;
+    text-align: left;
+	height:151px;
+}
+
+#padding_header_left
+{
+	margin-left:25%;
+}
+
+
+#currentLocationDisplay
+{
+	background-image:url('../Images/company_30.jpg');
+	background-repeat:repeat-x;
+	height:30px;
+	width:100%;
+	font-size:smaller;
+}
+
+
+#profilStatusContent
+{
+	font-size:small;
+	width:233px;
+	height:82px;
+	margin:10px 10px 10px 10px;
+}
+
+#header
+{
+	background-repeat:repeat;
+	height:46px;
+	width:100%;	
+}
+
+
+#menu
+{
+	
+	height:46px;
+	width:100%;	
+}
+
+#mainContent
+{
+	background-color:#FFFFFF;
+	padding-top: 10px;
+}
+
+#mainContentNoColumns
+{
+
+    margin: 0px auto;
+    text-align: left;
+    width:1004px;
+ 	background-color:#FFFFFF;
+	padding-top:10px;
+	height:auto;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#leftColumn
+{
+	background-color:#FFFFFF;
+	width:737px;
+	float:left;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	border-right:1px solid #7c7c7c;
+	height:auto;
+	padding-bottom: 10px;
+	
+}
+
+#rightColumn
+{
+	background-color:#FFFFFF;
+	width:246px;
+	float:left;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	height:auto;
+}
+
+#leftColumnContent
+{
+	width:737px;
+	padding-top:10px;
+	padding-bottom: 10px;
+	//border-bottom:1px solid #7c7c7c;
+}
+
+.leftColumnContentNoBorder
+{
+	width:1024px;
+	padding-top:10px;
+	padding-bottom: 10px;
+	
+	
+}
+
+#rightColumnContent
+{
+	width:246px;
+	border-bottom:1px solid #7c7c7c;
+	padding-top:10px;
+	padding-bottom: 10px;
+	font-size:12px;
+}
+
+#rightColumnContent a {color: #2c2c2c; text-decoration: none;}  
+
+#rightColumnContent a:hover {color: #2c7bb8; text-decoration:underline;}  
+
+
+/* Header Menu */
+
+#settingsDiv
+{
+	float:left;
+}
+
+#settingsDiv a
+{
+	color:#black;
+	text-decoration: none;
+}
+
+#settingsDiv a:hover
+{
+	color:white;
+	text-decoration:underline;
+}
+
+#pageTitleWithBorder
+{
+	font-family: Lucida Grande,Lucida Sans Unicode;
+	font-size:xx-large;
+	border-bottom:1px solid #7c7c7c;
+}
+
+
+#showPasswordForm,#changePasswordForm,#uploadify,#showAddQuoteAdminForm,#showAddNewsAdminForm,#addQuoteFormAdmin,#addNewsFormAdmin,#addUserFormAdmin,#showAddUserAdminForm,#uploadifyRestaurant,#name,#searchUser{}
+
+
+/* Instant Search */
+
+.suggest_link 
+{
+	background-color: #FFFFFF;
+	padding: 2px 6px 2px 6px;
+}
+
+.suggest_link_over 
+{
+	background-color: #3366CC;
+	padding: 2px 6px 2px 6px;
+}
+
+#search_suggest 
+{
+	position: absolute; 
+	background-color: #FFFFFF; 
+	text-align: left; 
+	border: 1px solid #000000;			
+}		
+
+
+/* Content Table */
+
+#contentTable
+{
+ padding-bottom: 20px; 
+ padding-top: 15px;
+ margin: 0px auto;
+ text-align: left;
+ width:400px;
+}
+
+#contentTable table {font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;padding-top: 100px; margin: 0; border-collapse: collapse; color: #333; background: #F3F5F7;}
+
+#contentTable a {color: #3A4856; text-decoration: none; border-bottom: 1px solid #C6C8CB;}  
+
+#contentTable a:visited {color: #777;}
+
+#contentTable a:hover {color: #000;}  
+
+#contentTable caption {text-align: left; text-transform: uppercase;  padding-bottom: 10px; font: 200% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;}
+
+#contentTable thead th {background: #3A4856; padding: 15px 10px; color: #fff; text-align: left; font-weight: normal;}
+
+#contentTable tbody, #contentTable thead {border-left: 0px solid #EAECEE; border-bottom: 1px solid #EAECEE;padding-bottom: 10px;}
+                      
+#contentTable tbody td, #contentTable tbody th {background: url("td_back.gif") repeat-x; text-align: left; }
+
+#contentTable tr {background: white; border-bottom: 0px solid #EAECEE;}
+
+#contentTable tr.odd {background: #F0F2F4;}
+
+#contentTable .submit { margin-left: 130px; padding-top: 20px; }
+
+#contentTable tfoot td, #contentTable th, #contentTable tfoot tr {text-align: left; font: 120%  "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif; text-transform: uppercase; background: #fff; padding: 10px;}
+
+#tdContentTable {padding-bottom: 10px;}
+
+
+/* "Winter Blues" CSS theme for CSS Table Gallery (http://icant.co.uk/csstablegallery/) by Gunta Klavina (http://www.klavina.com) */
+
+#generalTable
+{
+ padding-bottom: 20px; 
+ padding-top: 15px;
+}
+
+#generalTable table {font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;padding: 0; margin: 0; border-collapse: collapse; color: #333; background: #white;}
+
+#generalTable a {color: #3A4856; text-decoration: none; border-bottom: 1px solid #C6C8CB;}  
+
+#generalTable a:visited {color: #777;}
+
+#generalTable a:hover {color: #000;}  
+
+#generalTable caption {text-align: left; text-transform: uppercase;  padding-bottom: 10px; font: 200% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;}
+
+#generalTable thead th {background: #3A4856; padding: 15px 10px; color: #fff; text-align: left; font-weight: normal; font-size:small;}
+
+#generalTable tbody, #generalTable thead {border-left: 1px solid #EAECEE; border-right: 1px solid #EAECEE;}
+                      
+#generalTable tbody td, #generalTable tbody th {padding: 10px; background: url("td_back.gif") repeat-x; text-align: left;}
+
+#generalTable tr {background: #f8f9fa;border-bottom: 1px solid #EAECEE;}
+
+#generalTable tr.odd {background: #F0F2F4;}
+
+#generalTable tfoot td, #generalTable th, #generalTable tfoot tr {text-align: left; font: 120%  "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif; text-transform: uppercase; background: #fff; padding: 10px;}
+
+#generalTable input
+{
+	float:left;
+	width:95%;
+}
+
+#generalTable .infoTd
+{
+	padding-left: 10px;
+}
+
+
+/* Admin Page Table */
+
+/* "Winter Blues" CSS theme for CSS Table Gallery (http://icant.co.uk/csstablegallery/) by Gunta Klavina (http://www.klavina.com) */
+
+#peopleViewTable
+{
+ padding-bottom: 20px; 
+}
+
+#peopleViewTable table {font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;padding: 0; margin: 0; border-collapse: collapse; color: #333; background: #white;}
+
+#peopleViewTable a {color:#464646; text-decoration: none;}  
+
+#peopleViewTable a:hover {color:#2c7bb8;text-decoration: underline;
+}  
+
+#peopleViewTable caption {text-align: left; text-transform: uppercase;  padding-bottom: 10px; font: 200% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;}
+
+#peopleViewTable thead th {background: #FFFFFF; padding: 15px 10px; color: #2c2c2c; text-align: left; font-weight: normal; font-size:small;}
+
+#peopleViewTable tbody, #peopleViewTable thead {border-left: 1px solid #EAECEE; border-right: 1px solid #EAECEE;}
+                      
+#peopleViewTable tbody td, #peopleViewTable tbody th {padding: 10px; text-align: left;}
+
+#peopleViewTable tr {background: #FFFFFF;border-bottom: 1px solid #EAECEE;color:#2c2c2c;font-size:small;}
+
+#peopleViewTable tr.odd {background: #F0F2F4;}
+
+#peopleViewTable tfoot td, #peopleViewTable th, #peopleViewTable tfoot tr {text-align: left; font: 120%  "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif; text-transform: uppercase; background: #fff; padding: 10px;}
+
+#peopleViewTable input
+{
+	float:left;
+	width:95%;
+}
+
+#peopleViewTable .infoTd
+{
+	padding-left: 10px;
+}
+
+

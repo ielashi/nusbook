@@ -1,0 +1,133 @@
+html, body {
+	margin: 0px;
+	background: #fff;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:0.95em;
+	color:#4d4948;
+}
+
+h1 {
+	font-size:150%;
+	margin:0px;
+	padding:0px;
+}
+
+a {
+	color:#4d4948;
+}
+
+.clear {
+	clear:both;
+}
+
+#wrapper {
+	margin:50px auto 0 auto;
+	background:url('../images/wrapper-bg.jpg') no-repeat;
+	width:765px;
+	height:500px;
+}
+
+#wrapper #content {
+	padding:45px 30px 0 30px;
+}
+
+#wrapper #content #left-nav {
+	float:left;
+	font-size:95%;
+}
+
+#wrapper #content #left-nav ul {
+	padding:0 0 50px 0;
+	margin:0;
+}
+
+#wrapper #content #left-nav ul li {
+	padding-bottom: 10px;	margin:0;
+	list-style:none;
+}
+
+#wrapper #content #left-nav ul li a {
+	text-decoration:none;
+}
+
+#wrapper #content #left-nav ul li a:hover {
+	color:#ff0505;
+	text-decoration:underline;
+}
+
+
+#wrapper #content #left-nav #build a span {
+	display:none;
+}
+
+#wrapper #content #main {
+	float:right;
+	width:500px;
+	font-size:90%;
+}
+
+#wrapper #content #main #regbox {
+	padding: 15px 0 0 0;
+}
+
+#wrapper #content #main #regbox label {
+	width:150px;
+	float:left;
+}
+
+#wrapper #content #main #regbox input {
+	width:150px;
+}
+
+#wrapper #errors {
+	margin-top:15px;
+	color:#4d4948;
+	background-color:#fffebe;
+	border: 1px solid #cbcbcb;
+	font-size:90%;
+}
+
+#wrapper #success {
+	margin-top:15px;
+	color:#4d4948;
+	background-color:#bce9b5;
+	border: 1px solid #7ace6c;
+	padding:10px;
+}
+
+#main li {
+	margin-bottom: 15px;
+}
+
+#messageBlockDisplay
+{
+	color:white;
+	border: 1px solid #cbcbcb;
+	font-size:90%;
+	text-align: center;
+
+}
+
+#errorMessage
+{
+	background-color:#ff5959;
+	padding-top:5px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+#successMessage
+{
+	background-color:#8dd76d;
+	padding-top:5px;
+	padding-bottom: 5px;
+}
+
+#tipMessage
+{
+	background-color:#FFFFBB;
+	padding-top:5px;
+	padding-bottom: 5px;
+	color: black;
+}
