@@ -41,12 +41,14 @@
             <div id="leftColumnContent">
 				<table id="generalTable" width="100%">
 					<thead>
-						<tr >
+						<tr>
 							<th><label>Original Poster: </label></th>
-							<td><?php echo $printFirstnameLastnameUserLink($postInfo['poster']);?></td>
+							<td><?php echo printFirstnameLastnameUserLink($postInfo['poster']);?></td>
 							<th><label>Original Post Date: </label></th>
 							<td><?php echo $postInfo['post_date'];?></td>
-							<th><label>Original Poster: </label></th>
+						</tr>
+						<tr>
+							<th>Original Post: </th>
 							<td><?php echo $postInfo['post'];?></td>
 						</tr>
 					</thead>
