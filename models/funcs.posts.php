@@ -18,6 +18,25 @@
 		return ($row);
 	}
 	
+	function fetchReplies($id)
+	{
+		global $db;
+		
+		//This is to check if we pass an invalid ID. Check the groups.php table for an example.
+		if($id == -1)
+		{
+			return null;
+		}
+		
+		$sql = "SELECT p.id, p.group_id, p.title, p.post, p.post_date, u.username 
+				FROM posts p, users u
+				WHERE p.poster = u.id
+				AND p.reply_to = '".$id."'
+				ORDER BY p.post_date";
+
+		return $db->sql_query($sql);
+	}
+	
 		
 	//Return all the posts of the group, ordered by date. This should also return who wrote the post and its information (picture link and name). JOIN might be used here.
 	function fetchPostsOfGroup($group_id)

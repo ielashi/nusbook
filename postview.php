@@ -42,13 +42,20 @@
 				<table id="generalTable" width="100%">
 					<thead>
 						<tr>
-							<th><label>Original Poster: </label></th>
+							<th><label>Poster: </label></th>
 							<td><?php echo printFirstnameLastnameUserLink($postInfo['poster']);?></td>
-							<th><label>Original Post Date: </label></th>
+							<th><label>Post Date: </label></th>
 							<td><?php echo $postInfo['post_date'];?></td>
+							<?php
+							if ($postInfo['reply_to'] != NULL) {
+								$reply_to = $postInfo['reply_to'];
+							?>
+							<th><label>Response to:</label></th>
+							<td><a href="postview.php?id=<?php echo $reply_to; ?>">POST #<?php echo $reply_to; ?></a></td>
+							<?php } ?>
 						</tr>
 						<tr>
-							<th>Original Post: </th>
+							<th>Post: </th>
 							<td><?php echo $postInfo['post'];?></td>
 						</tr>
 					</thead>
@@ -60,9 +67,26 @@
             </div>  
             
             <div id="leftColumnContent">
-            <?php $url = "reply.php?post_id=".$postInfo['id']."cat_id=".$postInfo['group_id'];?>
+			<?php
+			$posts = fetchReplies($postInfo['id']);
+			$count = mysql_num_rows($posts); 
+			if($count > 0)
+			{
+				while ($post = mysql_fetch_array($posts))
+				{?>
+					<div>
+						<a href="postview.php?id=<?php echo $post[0]?>"><?php echo $post['title'] ?></a> - <?php echo $post['username'] ?>, <?php echo $post['post_date'] ?> <a href="postadd.php?id=<?php echo $post['group_id'];?>&reply=<?php echo $post[0]?>">Reply to this</a>
+					</div>
+					<div>
+						<?php echo $post['post'] ?>
+					</div>
+					<br/>
+				<?php
+				}
+			}
+			?>
+			<?php $url = "postadd.php?id=".$postInfo['group_id']."&reply=".$postInfo['id'];?>
             <a href="<?php echo $url;?>"><img src="images/reply.png"/></a>
-            Get all the replies for that post.
             </div>
         </div>
 
