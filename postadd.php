@@ -39,14 +39,29 @@
 				</div>              
 			</div>
             <div id="leftColumnContent">
-            <form name="newGroup" action="models/processing-forms/processing.posts.php" method="post">
-				<input type="hidden" name="action" value="add">
+            <form name="newPost" action="models/processing-forms/processing.posts.php" method="post">
 				<input type="hidden" name="group_id" value="<?php echo $_GET['id'];?>">
+				<?php
+				if (isset($_GET['reply'])) { 
+					$post = fetchPostDetail($_GET["reply"]);
+					$title = $post['title'];?>
+					<input type="hidden" name="action" value="reply">
+					<input type="hidden" name="reply" value="<?php echo $_GET['reply'];?>">
+				<?php } else { ?>
+					<input type="hidden" name="action" value="add">
+				<?php } ?>
+				<input type="hidden" name="user_id" value="<?php echo $loggedInUser->user_id;?>">
 				<table id="generalTable" width="100%">
 					<thead>
 						<tr>
 							<th><label>Title: </label></th>
-							<td><input name="title" type="text"/></td>
+							<?php 
+							if (isset($_GET['reply']) && $title != NULL) { ?>
+								<td><input name="title" type="text" value="<?php echo $title;?>"/></td>
+							<?php } else { ?>
+								<td><input name="title" type="text"/></td>
+							<?php } ?>
+							
 						</tr>
 						<tr>
 							<th><label>Content: </label></th>

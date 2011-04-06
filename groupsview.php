@@ -68,13 +68,35 @@
             </div> 
             
             <div id="leftColumnContent">
-            	This gets all the posts of the group and by view the post, you can see its reply, and actually reply to it. THERE IS A CHECK THAT IS MADE RIGHT HERE.
+            	This gets all the posts of the group and by view the post, you can see its reply, and actually reply to it. THERE IS A CHECK THAT IS MADE RIGHT HERE.</br>
             	
 				<?php if($loggedInUser->isInGroup($groupInfo['id'])) { ?>
+				<a href="postadd.php?id=<?php echo $groupInfo['id'];?>">Add New Post</a><br/>
 				<br/> YOU ARE IN THE GROUP. SHOW ME ALL THE POSTS OR IF NOT OWNER, YOU CAN UNJOIN.<br />
 					<?php if(!$loggedInUser->isOwnerGroup($groupInfo['id'])) {?>
 						<a href="models/processing-forms/processing.groups.php?id=<?php echo $groupInfo['id'];?>&action=unjoin"><img style="float:right;" src="images/unjoin.png"/>
 					<?php } ?>
+					
+					This is where all the posts of the group are displayed
+					<?php
+					$posts = fetchPostsOfGroup($groupInfo['id']);
+					$count = mysql_num_rows($posts); 
+					if($count > 0)
+					{
+						while ($post = mysql_fetch_array($posts))
+						{?>
+							<div>
+								<a href="postview.php?id=<?php echo $post[0]?>"><?php echo $post['title'] ?></a> - <?php echo $post['username'] ?>, <?php echo $post['post_date'] ?> <a href="postadd.php?id=<?php echo $groupInfo['id'];?>&reply=<?php echo $post[0]?>">Reply</a>
+							</div>
+							<div>
+								<?php echo $post['post'] ?>
+							</div>
+						<?php
+						}
+					}
+					?>
+						
+				<a href="postadd.php?id=<?php echo $groupInfo['id'];?>">Add New Post</a><br/>	
 				<?php } else { ?>
 				<br/><br />You are not part of this group. Please join it! <br /><a href="models/processing-forms/processing.groups.php?id=<?php echo $groupInfo['id'];?>&action=join"><img style="float:right;" src="images/join.png"/></a>
 				<?php } ?>

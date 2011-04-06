@@ -11,7 +11,7 @@
 			return null;
 		}
 		
-		$sql = "SELECT * FROM posts p WHERE p.id == '".$id."'";
+		$sql = "SELECT * FROM posts p WHERE p.id = '".$id."'";
 
 		$result = $db->sql_query($sql);
 		$row = $db->sql_fetchrow($result);
