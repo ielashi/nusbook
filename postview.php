@@ -68,22 +68,28 @@
             
             <div id="leftColumnContent">
 			<?php
-			$posts = fetchReplies($postInfo['id']);
-			$count = mysql_num_rows($posts); 
-			if($count > 0)
-			{
-				while ($post = mysql_fetch_array($posts))
-				{?>
-					<div>
-						<a href="postview.php?id=<?php echo $post[0]?>"><?php echo $post['title'] ?></a> - <?php echo $post['username'] ?>, <?php echo $post['post_date'] ?> <a href="postadd.php?id=<?php echo $post['group_id'];?>&reply=<?php echo $post[0]?>">Reply to this</a>
-					</div>
-					<div>
-						<?php echo $post['post'] ?>
-					</div>
-					<br/>
-				<?php
+			function printThread($id, $indent) {
+				$posts = fetchReplies($id);
+				$count = mysql_num_rows($posts); 
+				if($count > 0)
+				{
+					while ($post = mysql_fetch_array($posts))
+					{?>
+						<div>
+							<?php for ($i=0; $i<$indent; $i++) { echo ">"; } ?>
+							<a href="postview.php?id=<?php echo $post[0]?>"><?php echo $post['title'] ?></a> - <?php echo $post['username'] ?>, <?php echo $post['post_date'] ?> <a href="postadd.php?id=<?php echo $post['group_id'];?>&reply=<?php echo $post[0]?>">Reply to this</a>
+						</div>
+						<div>
+							<?php for ($i=0; $i<$indent; $i++) { echo ">"; } ?>
+							<?php echo $post['post'] ?>
+						</div>
+						<br/>
+					<?php
+					printThread($post[0], $indent+1);
+					}
 				}
 			}
+			printThread($postInfo['id'], 0);
 			?>
 			<?php $url = "postadd.php?id=".$postInfo['group_id']."&reply=".$postInfo['id'];?>
             <a href="<?php echo $url;?>"><img src="images/reply.png"/></a>
