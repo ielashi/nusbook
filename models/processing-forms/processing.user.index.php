@@ -137,9 +137,37 @@ if(!empty($_POST))
 		$url = "../../login.php?typemessage=errorMessage&message=".$errors[0];
 		header("Location: $url");
 	} 
+	else if ($action == "edit") 
+	{
+		$errors = array();
+		$email = trim($_POST["email"]);
+		$country = trim($_POST["country"]);
+	
+		//Perform some validation for the new user data
+		
+		if(!isValidEmail($email))
+		{
+			$errors[] = lang("ACCOUNT_INVALID_EMAIL");
+		}
+				
+		if(count($errors) == 0)
+		{	
+			global $db;
+			
+			$sql = "UPDATE users
+					SET 
+					email = '".$email."', country = '".$country."' 
+					WHERE id = '".$loggedInUser->user_id."'";
+
+			$db->sql_query($sql);
+		}
+		$url = "../../userProfil.php";
+		header("Location: $url");
+		die();	
+	}
 	else
 	{
-		// Error Message
+		die();
 	
 	}
 	
