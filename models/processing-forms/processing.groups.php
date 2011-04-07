@@ -12,9 +12,9 @@ if(isset($_POST["action"]) && $_POST["action"] == "add")
 	$category_id = trim($_POST["category_id"]);
 
 	$sql = "INSERT INTO groups 
-			(title,info,category_id) 
+			(title,info,category_id,creator_id) 
 			VALUES 
-			('".$title."','".$information."','".$category_id."')";
+			('".$title."','".$information."','".$category_id."','".$loggedInUser->user_id."')";
 	
 	$db->sql_query($sql);
 	$groupID = $db->sql_nextid();

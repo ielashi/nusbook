@@ -64,8 +64,7 @@
 	{
 		global $db;
 		
-		$sql = "SELECT * FROM groups g, categories c
-					WHERE g.category_id = c.id
+		$sql = "SELECT g.id, g.title FROM groups g
 				ORDER BY g.id DESC LIMIT 5";
 
 
@@ -73,7 +72,7 @@
 		
 		while($row = mysql_fetch_assoc($result))
 		{
-			echo ("<a href=\"groupsview.php?id=".$row['id']."\">".$row['title']." - ".$row['name']."</a><br /><br />");	
+			echo ("<a href=\"groupsview.php?id=".$row['id']."\">".$row['title']."</a><br /><br />");	
 		}	
 		
 	}

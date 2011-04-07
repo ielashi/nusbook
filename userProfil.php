@@ -35,12 +35,12 @@
         <div id="leftColumn">
         	
         	<div id="leftColumnHeader">
-                   <img src="Images/information.png" alt="restaurants" />
+                   <img src="images/information.png" alt="restaurants" />
             </div>
                
 			<div id="leftColumnContent">
 	            <div style="border-bottom:1px solid black;">
-						<form action="usersfunctions.php" method="post">
+						<form action="models/processing-forms/processing.user.index.php" method="post">
 						<?php $userInfo = fetchUserDetails($loggedInUser->username);?>
 					<input type="hidden" name="action" value="edit">
 		        	<table id="generalTable" width="100%">
@@ -48,7 +48,7 @@
 		            		<tr class="odd">
 		            			<th width="30%"><label>Name: </label></th>
 		            				<td>
-		     						<input type="text" name="address" value='<?php echo $loggedInUser->firstname;?> <?php echo $loggedInUser->lastname;?>' readonly="readonly">
+		     						<input type="text" name="name" value='<?php echo $loggedInUser->firstname;?> <?php echo $loggedInUser->lastname;?>' readonly="readonly">
 		            				</td>
 		            		</tr>
 		        		
@@ -58,22 +58,22 @@
 		        			</tr>
 		        			<tr >
 		        				<th><label>Sex: </label></th>
-		        					<td><input type="text" name="country" value='<?php echo $userInfo['sex'];?>' readonly="readonly"><br /> </td>
+		        					<td><input type="text" name="sex" value='<?php echo $userInfo['sex'];?>' readonly="readonly"><br /> </td>
 		        			</tr>
 							<tr class="odd">
 								<th><label>Email: </label></th>
-								<td><input type="text" name="country" value='<?php echo $userInfo['email'];?>'><br /> </td>
+								<td><input type="text" name="email" value='<?php echo $userInfo['email'];?>'><br /> </td>
 							</tr>
 		        		</thead>
 		        	</table>
-					<input type="image" value="submit" src="Images/save.png"/><br /><br />
+					<input type="image" value="submit" src="images/save.png"/><br /><br />
 					</form>
 	   			</div>
            	</div>
            
            
            <div id="leftColumnHeader">
-               <img src="Images/profilpicturemain.png" alt="restaurants" />
+               <img src="images/profilpicturemain.png" alt="restaurants" />
            </div>
            <div id="leftColumnContent">
 			 <table>
@@ -95,7 +95,7 @@
 	
 	        			<td id="tdContentTable">
 	        			<a style="border:0;" href="javascript:jQuery('#uploadify').uploadifyUpload()">
-	        				<img src="Images/upload.png"/>
+	        				<img src="images/upload.png"/>
 	        			</a>
 	        			<input type="file" name="uploadify" id="uploadify" />
 	        			</td>

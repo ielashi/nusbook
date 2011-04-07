@@ -7,9 +7,9 @@
 	$dbtype = "mysql"; 
 	$db_host = "localhost";
 	$db_user = "root";
-	$db_pass = "root";
+	$db_pass = "tundra66";
 	$db_name = "nusbook";
-	$db_port = "8889";
+	$db_port = "3306";
 	$db_table_prefix = "";
 
 	$langauge = "en";
