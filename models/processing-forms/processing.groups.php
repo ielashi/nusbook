@@ -64,12 +64,14 @@ if(isset($_POST["action"]) && $_POST["action"] == "add")
 	
 	$id = $_GET["id"];
 	
-	$sql = "DELETE FROM groups g WHERE g.id = '".$id."'";
+	$sql = "INSERT INTO group_members
+			(group_id,user_id,is_admin)
+			VALUES
+			('".$id."','".$loggedInUser->user_id."',0)";
 	
 	$db->sql_query($sql);
-	$groupID = $db->sql_nextid();
 
-	$url = "../../groups.php?typemessage=successMessage&message=JOIN_SUCCESS";
+	$url = "../../groupsview.php?id=".$id;
 	header("Location: $url");
 	die();
 	
