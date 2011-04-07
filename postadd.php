@@ -30,8 +30,9 @@
             </div>
         </div>
     </div>
-
+	
     <div id="mainContent">
+	<?php if($loggedInUser->isInGroup($_GET['id'])) { ?>
         <div id="leftColumn">
             <div id="leftColumnHeader">
 				<div id="pageTitleWithBorder">
@@ -80,6 +81,9 @@
         
         <div style="clear:both;">
         </div>
+		<?php } else { ?>
+		You do not have permission to post in this group.
+		<?php } ?>
 	</div>
 </div>
 
