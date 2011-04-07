@@ -69,13 +69,12 @@
             
             <div id="leftColumnContent">
 				<?php if($loggedInUser->isInGroup($groupInfo['id'])) { ?>
-				<a href="postadd.php?id=<?php echo $groupInfo['id'];?>">Add New Post</a><br/>
+				<a href="postadd.php?id=<?php echo $groupInfo['id'];?>"><img src="images/add.png"></a><br/>
 				<br/> <br />
 					<?php if(!$loggedInUser->isOwnerGroup($groupInfo['id'])) {?>
 						<a href="models/processing-forms/processing.groups.php?id=<?php echo $groupInfo['id'];?>&action=unjoin"><img style="float:right;" src="images/unjoin.png"/>
 					<?php } ?>
 
-					<a href="postadd.php?id=<?php echo $groupInfo['id'];?>"><img src="images/add.png"></a><br/><br/>
 					<?php
 					function printThread($id, $indent) {
 						$posts = fetchReplies($id);

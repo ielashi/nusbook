@@ -70,7 +70,7 @@
             
             <div id="leftColumnContent">
 			<?php $url = "postadd.php?id=".$postInfo['group_id']."&reply=".$postInfo['id'];?>
-			<a href="<?php echo $url;?>"><img src="images/reply.png"/></a><br/>
+			<a href="<?php echo $url;?>"><img src="images/reply.png"/></a><br/><br/>
 			<?php
 			function printThread($id, $indent) {
 				$posts = fetchReplies($id);
@@ -96,7 +96,7 @@
 			}
 			printThread($postInfo['id'], 1);
 			?>
-            <a href="<?php echo $url;?>"><img src="images/reply.png"/></a>
+            </br><a href="<?php echo $url;?>"><img src="images/reply.png"/></a>
             </div>
         </div>
 
