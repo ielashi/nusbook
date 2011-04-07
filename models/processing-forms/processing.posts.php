@@ -15,12 +15,11 @@ if(isset($_POST["action"]) && $_POST["action"] == "add")
 	$sql = "INSERT INTO posts 
 			(group_id,title,poster,post,post_date) 
 			VALUES 
-			('".$group_id."','".$title."','".$user_id."','".$post."','".time()."')";
-	
-	echo $sql;
-	
+			('".$group_id."','".$title."','".$user_id."','".$post."',from_unixtime(".time()."))";
+
 	$db->sql_query($sql);
 	$postID = $db->sql_nextid();
+	//var_dump( $db->sql_error($sql) );
 	
 	$url = "../../postview.php?id=".$postID;
 	header("Location: $url");
@@ -37,14 +36,10 @@ if(isset($_POST["action"]) && $_POST["action"] == "add")
 	$sql = "INSERT INTO posts 
 			(group_id,title,poster,post,post_date,reply_to) 
 			VALUES 
-			('".$group_id."','".$title."','".$user_id."','".$post."','".time()."','".$reply."')";
-	
-	echo $sql;
+			('".$group_id."','".$title."','".$user_id."','".$post."',from_unixtime(".time()."),'".$reply."')";
 	
 	$db->sql_query($sql);
 	$postID = $db->sql_nextid();
-	
-	// THIS ONE ISN'T WORKING FOR SOME REASON
 	
 	$url = "../../postview.php?id=".$postID;
 	header("Location: $url");
