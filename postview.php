@@ -46,17 +46,18 @@
 							<td><?php echo printFirstnameLastnameUserLink($postInfo['poster']);?></td>
 							<th><label>Post Date: </label></th>
 							<td><?php echo $postInfo['post_date'];?></td>
+							<th><label>Response to:</label></th>
 							<?php
 							if ($postInfo['reply_to'] != NULL) {
 								$reply_to = $postInfo['reply_to'];
 							?>
-							<th><label>Response to:</label></th>
 							<td><a href="postview.php?id=<?php echo $reply_to; ?>">POST #<?php echo $reply_to; ?></a></td>
+							<?php } else { ?>
+							<td>NO ONE</td>
 							<?php } ?>
 						</tr>
 						<tr>
-							<th>Post: </th>
-							<td><?php echo $postInfo['post'];?></td>
+							<td colspan=8><?php echo $postInfo['post'];?></td>
 						</tr>
 					</thead>
 				</table>
@@ -67,6 +68,8 @@
             </div>  
             
             <div id="leftColumnContent">
+			<?php $url = "postadd.php?id=".$postInfo['group_id']."&reply=".$postInfo['id'];?>
+			<a href="<?php echo $url;?>"><img src="images/reply.png"/></a><br/>
 			<?php
 			function printThread($id, $indent) {
 				$posts = fetchReplies($id);
@@ -77,21 +80,21 @@
 					{?>
 						<div>
 							<?php for ($i=0; $i<$indent; $i++) { echo ">"; } ?>
-							<a href="postview.php?id=<?php echo $post[0]?>"><?php echo $post['title'] ?></a> - <?php echo $post['username'] ?>, <?php echo $post['post_date'] ?> <a href="postadd.php?id=<?php echo $post['group_id'];?>&reply=<?php echo $post[0]?>">Reply to this</a>
+							<a href="postview.php?id=<?php echo $post[0]?>"><?php echo $post['title'] ?></a> - <?php echo $post['username'] ?>, <?php echo $post['post_date'] ?>
 						</div>
 						<div>
 							<?php for ($i=0; $i<$indent; $i++) { echo ">"; } ?>
 							<?php echo $post['post'] ?>
 						</div>
-						<br/>
-					<?php
-					printThread($post[0], $indent+1);
+					<?php 
+					printThread($post[0], $indent+1);				
 					}
+				} else { ?>
+					<br/><?php
 				}
 			}
-			printThread($postInfo['id'], 0);
+			printThread($postInfo['id'], 1);
 			?>
-			<?php $url = "postadd.php?id=".$postInfo['group_id']."&reply=".$postInfo['id'];?>
             <a href="<?php echo $url;?>"><img src="images/reply.png"/></a>
             </div>
         </div>
