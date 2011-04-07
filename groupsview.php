@@ -68,15 +68,36 @@
             </div> 
             
             <div id="leftColumnContent">
-            	
 				<?php if($loggedInUser->isInGroup($groupInfo['id'])) { ?>
 				<a href="postadd.php?id=<?php echo $groupInfo['id'];?>">Add New Post</a><br/>
 				<br/> <br />
 					<?php if(!$loggedInUser->isOwnerGroup($groupInfo['id'])) {?>
 						<a href="models/processing-forms/processing.groups.php?id=<?php echo $groupInfo['id'];?>&action=unjoin"><img style="float:right;" src="images/unjoin.png"/>
 					<?php } ?>
-					
+
+					<a href="postadd.php?id=<?php echo $groupInfo['id'];?>"><img src="images/add.png"></a><br/><br/>
 					<?php
+					function printThread($id, $indent) {
+						$posts = fetchReplies($id);
+						$count = mysql_num_rows($posts); 
+						if($count > 0)
+						{
+							while ($post = mysql_fetch_array($posts))
+							{?>
+							<div>
+								<?php for ($i=0; $i<$indent; $i++) { echo ">"; } ?>
+								<a href="postview.php?id=<?php echo $post[0]?>"><?php echo $post['title'] ?></a> - <?php echo $post['username'] ?>, <?php echo $post['post_date'] ?> <a href="postadd.php?id=<?php echo $post['group_id'];?>&reply=<?php echo $post[0]?>"><img src="images/reply.png"></a>
+							</div>
+							<div>
+								<?php for ($i=0; $i<$indent; $i++) { echo ">"; } ?>
+								<?php echo $post['post'] ?>
+							</div>
+							<?php
+							printThread($post[0], $indent+1);
+							}
+						}
+					}
+					
 					$posts = fetchPostsOfGroup($groupInfo['id']);
 					$count = mysql_num_rows($posts); 
 					if($count > 0)
@@ -84,17 +105,19 @@
 						while ($post = mysql_fetch_array($posts))
 						{?>
 							<div>
-								<a href="postview.php?id=<?php echo $post[0]?>"><?php echo $post['title'] ?></a> - <?php echo $post['username'] ?>, <?php echo $post['post_date'] ?> <a href="postadd.php?id=<?php echo $groupInfo['id'];?>&reply=<?php echo $post[0]?>">Reply</a>
+								<a href="postview.php?id=<?php echo $post[0]?>"><?php echo $post['title'] ?></a> - <?php echo $post['username'] ?>, <?php echo $post['post_date'] ?> <a href="postadd.php?id=<?php echo $groupInfo['id'];?>&reply=<?php echo $post[0]?>"><img src="images/reply.png"></a>
 							</div>
 							<div>
 								<?php echo $post['post'] ?>
 							</div>
-						<?php
+						<?php printThread($post[0], 1); ?>
+						<br/><?php
 						}
 					}
 					?>
+
 				<br/><br/>		
-				<a href="postadd.php?id=<?php echo $groupInfo['id'];?>">Add New Post</a><br/>	
+				<a href="postadd.php?id=<?php echo $groupInfo['id'];?>"><img src="images/add.png"></a><br/>	
 				<?php } else { ?>
 				<br/><br />You are not part of this group. Join it! <br />
 				<a href="models/processing-forms/processing.groups.php?id=<?php echo $groupInfo['id'];?>&action=join"><img style="float:right;" src="images/join.png"/></a>

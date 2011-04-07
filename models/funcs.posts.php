@@ -48,6 +48,7 @@
 				FROM posts p, users u
 				WHERE p.poster = u.id
 				AND p.group_id = " . $group_id . "
+				AND p.reply_to IS NULL
 				ORDER BY p.post_date";
 
 		return $db->sql_query($sql);
