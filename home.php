@@ -37,7 +37,11 @@
                 <img src="images/welcome.jpg" alt="welcome" />
             </div>
             <div id="leftColumnContent">
-            	<br />       
+            	<p>nUs Book is a discussion tool that allows users to post their thoughts and ideas regarding different topics.</p>
+            	<p>There are various different categories, each containing related group topics.</p>
+            	<p>Users can join groups and add posts, or create a new group!</p>
+            	<p>Start by searching for interesting  <a href="groups.php">groups</a></p>
+            	<p>Or find other registered <a href ="people.php">users</a></p>   
             </div>
         </div>
 

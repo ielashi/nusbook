@@ -51,7 +51,7 @@
             </div>
             <div id="leftColumnContent">
 	            <p>
-	            	A group on nUs BooK is assigned a main category upon its creation. TEXXXT if possible on more things about the groups etc.
+	            	A group on nUs BooK is assigned a main category upon its creation. Users may join groups to begin posting new threads or replies. 
 	            </p>
 	            <div style="padding-top:15px;">
 

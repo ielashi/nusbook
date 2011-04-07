@@ -66,7 +66,7 @@
 						</tr>
 					</thead>
 				</table>
-				<input type="image" src="Images/save.png" value="submit" class="submit"/>
+				<input type="image" src="images/save.png" value="submit" class="submit"/>
 			</form>
             </div>
         </div>
