@@ -85,19 +85,26 @@
 	{
 		global $db;
 			
-		$sql = "";
+		$sql = "SELECT COUNT(*) as numAdded
+				FROM groups
+				WHERE creator_id = ".$user_id;
 	
-		return $db->sql_query($sql);
-	
+		$result = $db->sql_query($sql);
+		$row = $db->sql_fetchrow($result);
+		return $row["numAdded"];	
 	}
 	
 	function fetchPostsByUser($user_id)
 	{
 		global $db;
 			
-		$sql = "";
+		$sql = "SELECT COUNT(*) as numAdded
+				FROM posts
+				WHERE poster = ".$user_id;
 	
-		return $db->sql_query($sql);
+		$result = $db->sql_query($sql);
+		$row = $db->sql_fetchrow($result);
+		return $row["numAdded"];	
 	
 	}
 	

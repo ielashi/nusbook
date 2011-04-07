@@ -49,7 +49,7 @@
 				<img src="<?php echo retrieveProfilPicture($userInfo['id']); ?>"/>
 			</div>
 	            <div style="border-bottom:1px solid black;">
-		        	<table id="generalTable" width="100%">
+		        	<table id="generalTable" width="40%">
 		        		<thead>
 		        			<tr class="odd">
 		        				<th><label>Country: </label></th>
@@ -66,76 +66,17 @@
 		        		</thead>
 		        	</table>
 	   			</div>
-           	</div>
-
+           	
+			<br/>
 			<?php
 				$addedGroups = fetchAddedGroupsByUser($userInfo['id']);
-				$count = 0;
-				$number = mysql_num_rows($addedGroups); 
-				if($number > 0)
-				{
-				?> 
-					<div id="insidePageTitleWithoutBorder">Groups added by <?php echo $userInfo['firstname'];?></div>
-					<div id="listAddedBy">
-			    		<?php
-			    		while ($row = mysql_fetch_array($addedGroups)) 
-			    		{
-			    		?>	<a href="groupsview.php?category_id=<?php echo $row['id'];?>">
-			    			
-			    			<?php echo $row['title'];?></a>
-			    			<br />
-			    		<?php
-			        		$count++;
-			        		if($count != $number)
-			        		{
-								?><div class="grayLine"></div><?php
-			        			
-			        		
-			        		}
-			        	}
-			    		?> 
-					</div> <?php
-				} else {
+				echo "<p>User has added ".$addedGroups." group(s)<br/>";
 				
-					echo "<br/>No Groups added.";
-				}
-			
-			?>
-			
-			<?php
-				$addedPosts = fetchPostsByUser($userInfo['id']);
-				$count = 0;
-				$number = mysql_num_rows($addedPosts); 
-				if($number > 0)
-				{
-				?> 
-					<div id="insidePageTitleWithoutBorder">Posts by <?php echo $userInfo['firstname'];?></div>
-					<div id="listAddedBy">
-			    		<?php
-			    		while ($row = mysql_fetch_array($addedPosts)) 
-			    		{
-			    		?>	<a href="postview.php?post_id=<?php echo $row['post'];?>">
-			    			
-			    			<?php echo $row['title'];?></a>
-			    			<br />
-			    		<?php
-			        		$count++;
-			        		if($count != $number)
-			        		{
-								?><div class="grayLine"></div><?php
-			        			
-			        		
-			        		}
-			        	}
-			    		?> 
-					</div> <?php
-				} else {
-				
-					echo "<br/>No posts were made.";
-				}
-			
-			?>
 
+				$addedPosts = fetchPostsByUser($userInfo['id']);
+				echo "User has posted ".$addedPosts." post(s)</p>";
+			?>
+			</div>
        </div>
 		
 		<div id="rightColumn">

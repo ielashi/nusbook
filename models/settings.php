@@ -16,7 +16,7 @@
 	
 	//Generic website variables
 	$websiteName = "nusBook";
-	$websiteUrl = "http://localhost/nusbook/index.php"; //including trailing slash	
+	$websiteUrl = "http://localhost:8888/nusbook/index.php"; //including trailing slash	
 
 	
 	//Tagged onto our outgoing emails
