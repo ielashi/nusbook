@@ -32,6 +32,7 @@
     </div>
 
     <div id="mainContent">
+		<?php if($loggedInUser->isInGroup($postInfo['group_id'])) { ?>
         <div id="leftColumn">
             <div id="leftColumnHeader">
 				<div id="pageTitleWithBorder">
@@ -106,6 +107,9 @@
         <div style="clear:both;">
         </div>
 	</div>
+	<?php } else { ?>
+	You do not have permission to view this post.
+	<?php } ?>
 </div>
 
 </body>
