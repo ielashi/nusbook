@@ -62,6 +62,7 @@
 						</tr>
 					</thead>
 				</table>
+				<a href="groupsview.php?id=<?php echo $postInfo['group_id']; ?>">Back to Group</a><br/><br/>
             </div>
             
             <div id="pageTitleWithBorder">
@@ -72,31 +73,32 @@
 			<?php $url = "postadd.php?id=".$postInfo['group_id']."&reply=".$postInfo['id'];?>
 			<a href="<?php echo $url;?>"><img src="images/reply.png"/></a><br/><br/>
 			<?php
-			function printThread($id, $indent) {
+			function printThread($id) {
 				$posts = fetchReplies($id);
 				$count = mysql_num_rows($posts); 
 				if($count > 0)
 				{
 					while ($post = mysql_fetch_array($posts))
 					{?>
+						<ul><li>
 						<div>
-							<?php for ($i=0; $i<$indent; $i++) { echo ">"; } ?>
 							<a href="postview.php?id=<?php echo $post[0]?>"><?php echo $post['title'] ?></a> - <?php echo $post['username'] ?>, <?php echo $post['post_date'] ?>
 						</div>
 						<div>
-							<?php for ($i=0; $i<$indent; $i++) { echo ">"; } ?>
 							<?php echo $post['post'] ?>
 						</div>
-					<?php 
-					printThread($post[0], $indent+1);				
+						</li>
+						<?php printThread($post[0]); ?>
+						</ul><?php
 					}
 				} else { ?>
 					<br/><?php
 				}
 			}
-			printThread($postInfo['id'], 1);
+			printThread($postInfo['id']);
 			?>
-            </br><a href="<?php echo $url;?>"><img src="images/reply.png"/></a>
+            <br/><a href="<?php echo $url;?>"><img src="images/reply.png"/></a>
+			<br/><a href="groupsview.php?id=<?php echo $postInfo['group_id']; ?>">Back to Group</a>
             </div>
         </div>
 
